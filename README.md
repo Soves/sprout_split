@@ -10,4 +10,6 @@ setup:
 	Click the + Icon And navigate to Control > Scriptable Auto Splitter 
 	Double Click Scriptable Auto Splitter
 	Click Browse then select sprout.asl
+	
+	Then right click LiveSplit and select compare to game time
 ```
