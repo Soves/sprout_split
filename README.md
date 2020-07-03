@@ -3,6 +3,8 @@
 
 setup:
 ```
+	CURRENTLY IN BETA!
+	
 	Download ZIP file and upzip it
 	Right Click LiveSplit and go to Edit Layout 
 	Click the + Icon And navigate to Control > Scriptable Auto Splitter 
