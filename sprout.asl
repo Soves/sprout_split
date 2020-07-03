@@ -20,7 +20,7 @@ start{
 }
 
 gameTime{
-    if (!vars.paused){
+    if (!vars.paused){3
         return TimeSpan.FromMilliseconds(vars.totalTime+current.time);
     }
 }
@@ -44,7 +44,7 @@ reset {
 }
 
 split {
-    print(current.gameEvent);
+    
     if (current.gameEvent.Contains("finished") && vars.split == false){
         vars.totalTime = vars.totalTime+old.time;
         vars.split = true;
