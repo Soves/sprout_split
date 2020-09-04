@@ -3,7 +3,7 @@
 
 setup:
 ```
-	Latest version works with V1.0.0.2 only!
+	Latest version works with V1.0.0.5!
 	
 	Download ZIP file and upzip it
 	Right Click LiveSplit and go to Edit Layout 

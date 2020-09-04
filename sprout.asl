@@ -1,7 +1,7 @@
 
 state("-SPROUT_V1-"){
-    double time : 0x0082CB80, 0x2C, 0x10, 0x7C8, 0x2C0;
-    string255 gameEvent : 0x0082CB80, 0x2C, 0x10, 0x528, 0x10, 0x0, 0x0;
+    double time : 0x008372E0, 0x2C, 0x10, 0x438, 0x1F0;
+    string255 gameEvent : 0x008372E0, 0x2C, 0x10, 0x528, 0x10, 0x0, 0x0;
 }
 /*
 state("-SPROUT- THE BETA"){
@@ -19,7 +19,7 @@ init {
 
 start{
     //start run
-    if (current.gameEvent.Contains("started")){
+    if (current.gameEvent.Contains("started") && current.time >= 100){
         vars.split = true;
         vars.totalTime = 0;
         return true;
@@ -30,7 +30,11 @@ gameTime{
     
     //pass in level time added with sum of completed levels time
     if (!vars.paused){
-        return TimeSpan.FromMilliseconds(vars.totalTime+current.time);
+        if (current.time < 100){
+            return TimeSpan.FromMilliseconds(vars.totalTime);
+        }else{
+            return TimeSpan.FromMilliseconds(vars.totalTime+current.time);
+        }
     }
 }
 
@@ -44,13 +48,13 @@ update {
 }
 
 isLoading{
-    return vars.paused;
+    return vars.paused || current.time < 100;
 }
 
 reset {
     
     //reset run
-    if (current.gameEvent.Contains("restart") || current.gameEvent.Contains("quit")){
+    if (current.gameEvent.Contains("quit")){
         vars.paused = false;
         return true;
     }
